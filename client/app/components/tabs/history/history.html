@@ -27,7 +27,7 @@
           class="person"
           ng-model="$ctrl.patient"
           ng-click="$ctrl.selectPatient()"
-          ng-options="patient.name for patient in $ctrl.patients | filter:$ctrl.filterPatient track by patient.$id">
+          ng-options="patient.$id as (patient.firstname + ' ' + patient.lastname) for patient in $ctrl.patients | filter:$ctrl.filterPatient track by patient.$id">
         </select>
 
       </div>

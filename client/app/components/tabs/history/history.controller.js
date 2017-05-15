@@ -1,6 +1,14 @@
 
 class HistoryController {
 
+  /**
+   * TODO:
+   * move FirebaseService into HisotyrService
+   * use constants
+   * 
+   */
+
+
   constructor(FirebaseService) {
 
     'ngInject';
@@ -34,7 +42,7 @@ class HistoryController {
 
     this.clinicalHistory = this
       .FirebaseService
-      .getFBSyncedArray('clinical_history', {method: 'equalTo', value: patient.$id, key: 'patient_id'});
+      .getFromCollection('clinical_history', {method: 'equalTo', value: patient.$id, key: 'patient_id'});
 
   }
 
@@ -42,7 +50,7 @@ class HistoryController {
 
     this.patients = this
       .FirebaseService
-      .getFBSyncedArray('patients');
+      .getFromCollection('patients');
 
   }
 

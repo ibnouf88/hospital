@@ -100,7 +100,7 @@ export default class FirebaseService {
   getById(child, $id) {
 
     return this
-      .$firebaseArray(this.getChildRef('patients'))
+      .$firebaseArray(this.getChildRef(child))
       .$loaded()
       .then((list) => {
 
@@ -121,6 +121,7 @@ export default class FirebaseService {
    */
   getFromCollection(child, query = {}) {
 
+    // TODO: check if exists
     let ref = this.getChildRef(child);
 
     if (!_.isEmpty(query)) {

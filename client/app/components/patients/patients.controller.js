@@ -3,6 +3,7 @@ import * as patientConstants from 'constants/patient.constants';
 
 class PatientsController {
   
+  // move into a patients service
   $onInit() {
 
     this.patients = this
