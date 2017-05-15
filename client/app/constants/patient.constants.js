@@ -1,0 +1,1 @@
+export const PATIENTS_COLLECTION_NAME = 'patients';

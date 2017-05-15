@@ -1,0 +1,25 @@
+<div>
+  <h3>Pacientes</h3>
+  <div>
+    <table class="table">
+      
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="patient in $ctrl.patients">
+        <td>{{ ::patient.firstname }}</td>
+        <td>{{ ::patient.lastname }}</td>
+        <td>
+          <a ui-sref="patientEdit({id: patient.$id})">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          </a>
+          <i class="fa fa-minus-square-o" aria-hidden="true"></i>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  
+</div>
