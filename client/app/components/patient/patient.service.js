@@ -50,6 +50,12 @@ export default class PatientService {
     
   }
 
+  getPatientFullName(patient) {
+
+    return `${patient.firstname} ${patient.lastname}`;
+
+  }
+
   constructor($q, FirebaseService) {
     
     'ngInject';

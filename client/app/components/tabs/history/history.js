@@ -1,10 +1,14 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import historyComponent from './history.component';
+import HistoryComponent from './history.component';
+import HistoryService from './history.service';
 
 export default angular.module('history', [
   uiRouter
 ])
-.component('history', historyComponent)
+
+.component('history', HistoryComponent)
+
+.service('HistoryService', HistoryService)
 
 .name;

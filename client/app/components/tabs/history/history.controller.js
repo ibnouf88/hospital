@@ -8,13 +8,14 @@ class HistoryController {
    * 
    */
 
-
-  constructor(FirebaseService) {
+  constructor(PatientService, HistoryService) {
 
     'ngInject';
 
-    this.FirebaseService = FirebaseService;
     this.name = 'history';
+
+    this.PatientService = PatientService;
+    this.HistoryService = HistoryService;
   
   }
 
@@ -24,9 +25,9 @@ class HistoryController {
    * 
    * @memberOf HistoryController
    */
-  selectPatient() {
+  selectPatient(patient) {
 
-    this.selectedPatient = _.head(this.patient);
+    this.selectedPatient = _.head(patient);
     this.getClinicalHistory(this.selectedPatient);
 
   }
@@ -41,16 +42,23 @@ class HistoryController {
   getClinicalHistory(patient) {
 
     this.clinicalHistory = this
-      .FirebaseService
-      .getFromCollection('clinical_history', {method: 'equalTo', value: patient.$id, key: 'patient_id'});
+      .HistoryService
+      .getClinicalHistory(patient);
+
+  }
+
+  getPatientFullName(patient) {
+
+    return this.PatientService
+      .getPatientFullName(patient); 
 
   }
 
   $onInit() {
 
     this.patients = this
-      .FirebaseService
-      .getFromCollection('patients');
+      .HistoryService
+      .getAllHistories();
 
   }
 

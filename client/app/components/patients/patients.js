@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
-import patientsComponent from './patients.component';
+import PatientsComponent from './patients.component';
+import PatientsService  from './patients.service';
 
 let patientsModule = angular.module('patients', [
   uiRouter
@@ -20,7 +21,9 @@ let patientsModule = angular.module('patients', [
     
 })
 
-.component('patients', patientsComponent)
+.component('patients', PatientsComponent)
+
+.service('PatientsService', PatientsService)
 
 .name;
 

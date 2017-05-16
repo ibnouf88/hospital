@@ -26,8 +26,8 @@
         <select multiple
           class="person"
           ng-model="$ctrl.patient"
-          ng-click="$ctrl.selectPatient()"
-          ng-options="patient.$id as (patient.firstname + ' ' + patient.lastname) for patient in $ctrl.patients | filter:$ctrl.filterPatient track by patient.$id">
+          ng-click="$ctrl.selectPatient($ctrl.patient)"
+          ng-options="patient as (patient.firstname + ' ' + patient.lastname) for patient in $ctrl.patients | filter:$ctrl.filterPatient track by patient.$id">
         </select>
 
       </div>
@@ -37,7 +37,10 @@
         <div ng-if="$ctrl.selectedPatient">
         
           <div class="text-center">
-            <h3>ATENCIONES DE {{ $ctrl.selectedPatient.name }}</h3>
+            <h3>
+              ATENCIONES DE 
+              <strong ng-bind="$ctrl.getPatientFullName($ctrl.selectedPatient) | uppercase"></strong>
+            </h3>
           </div>
 
           <table class="table table-striped">
@@ -45,15 +48,15 @@
               <tr>
                 <th>Fecha</th>
                 <th>Médico</th>
-                <th>Descripción</th>
+                <th>Diagnostico</th>
               </tr>
             </thead>
             <tbody>
-              {{$ctrl.clinicalHistory | json}}
+              <!--{{$ctrl.clinicalHistory | json}}-->
               <tr ng-repeat="history in $ctrl.clinicalHistory">
                 <td>{{ history.date | date:'dd/mm/yyyy' }}</td>
                 <td>{{ history.professional }}</td>
-                <td>{{ history.description }}</td>
+                <td>{{ history.diagnosis }}</td>
               </tr>
             </tbody>
           </table>

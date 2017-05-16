@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default bg-info">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,14 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Icon</a>
+      <a class="navbar-brand" href="#">
+        <i class="fa fa-2x fa-hospital-o" aria-hidden="true"></i>
+      </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a ui-sref="patients">Pacientes <span class="sr-only">(current)</span></a></li>
-        <li><a ui-sref="home">Historias Clinicas</a></li>
+        <li ng-class="{'active': $ctrl.tabIsActive('patients')}"><a ui-sref="patients" ng-click="$ctrl.setActiveTab('patients')">Pacientes <span class="sr-only">(current)</span></a></li>
+        <li ng-class="{'active': $ctrl.tabIsActive('history')}"><a ui-sref="home" ng-click="$ctrl.setActiveTab('history')">Historias Clinicas</a></li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
