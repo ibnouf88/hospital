@@ -1,10 +1,10 @@
 
 import * as historyConstants from 'constants/history.constants';
 
-export default class HistoryService {
+class HistoryService {
 
   /**
-   * 
+   * Get clinical history for patient
    * 
    * @param {any} patient
    * @returns
@@ -23,21 +23,6 @@ export default class HistoryService {
 
   }
 
-  /**
-   * 
-   * 
-   * @returns
-   * 
-   * @memberOf HistoryService
-   */
-  getAllHistories() {
-
-    return this
-      .PatientsService
-      .getAllPatients();
-
-  }
-
   constructor(PatientsService, FirebaseService) {
     
     'ngInject';
@@ -48,15 +33,8 @@ export default class HistoryService {
     this.FirebaseService = FirebaseService;
     this.PatientsService = PatientsService;
 
-    // this
-    //   .FirebaseService
-    //   .addToCollection(this.colName, {
-    //     patient_id: '-Kk8HrjdO0KV8q-fKRGh',
-    //     date: '05/15/2017',
-    //     professional: 'Nick Riviera',
-    //     diagnosis: 'Dolor de garganta'
-    //   });
-
   }
 
 }
+
+export default HistoryService;

@@ -1,19 +1,13 @@
 
 class HistoryController {
 
-  /**
-   * TODO:
-   * move FirebaseService into HisotyrService
-   * use constants
-   * 
-   */
-
-  constructor(PatientService, HistoryService) {
+  constructor(PatientService, PatientsService, HistoryService) {
 
     'ngInject';
 
     this.name = 'history';
 
+    this.PatientsService = PatientsService;
     this.PatientService = PatientService;
     this.HistoryService = HistoryService;
   
@@ -49,7 +43,8 @@ class HistoryController {
 
   getPatientFullName(patient) {
 
-    return this.PatientService
+    return this
+      .PatientService
       .getPatientFullName(patient); 
 
   }
@@ -57,8 +52,8 @@ class HistoryController {
   $onInit() {
 
     this.patients = this
-      .HistoryService
-      .getAllHistories();
+      .PatientsService
+      .getAllPatients();
 
   }
 

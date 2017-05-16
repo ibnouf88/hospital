@@ -1,7 +1,7 @@
 
 import * as patientConstants from 'constants/patient.constants';
 
-export default class PatientService {
+class PatientService {
 
   getAllPatients() {
 
@@ -21,3 +21,5 @@ export default class PatientService {
   }
 
 }
+
+export default PatientService;

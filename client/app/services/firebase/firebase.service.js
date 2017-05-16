@@ -1,7 +1,7 @@
 
 import firebase from 'firebase';
 
-export default class FirebaseService {
+class FirebaseService {
 
   /**
    * Get/Set reference from/to cache
@@ -151,3 +151,5 @@ export default class FirebaseService {
   }
 
 }
+
+export default FirebaseService;
